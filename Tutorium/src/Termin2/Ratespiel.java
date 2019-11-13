@@ -31,9 +31,8 @@ public class Ratespiel {
 		scanner.close();
 	}
 	
-	
-	
-	
+
+	//Alternative
 	public void alternative() {
 		int rand = (int) (Math.random() * 100 + 1);
 		Scanner scanner = new Scanner(System.in);
