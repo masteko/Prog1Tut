@@ -29,7 +29,7 @@ public class Schleifen {
 
 		// for
 		for (n = 10; n >= 0; n--) {
-			System.out.print(n + " ");
+			System.out.print(n+ " ");
 		}
 		
 	}
