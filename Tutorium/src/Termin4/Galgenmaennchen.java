@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Galgenmaennchen {
 	//Bitte beachtet das dieser Code noch diverse Fehler und Dopplungen enthält. 
-	//Er wurde zu verständniszwecken so einfach wie möglich gehalten
+	//Er wurde zu Verständniszwecken so einfach wie möglich gehalten
 
 	public static void main(String[] args) {
 		String[] woerter = {"Tutorium", "Programmieren", "Computer"};
