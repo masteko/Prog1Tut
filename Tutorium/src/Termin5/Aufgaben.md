@@ -22,3 +22,10 @@ Großbuchstaben durch Kleinbuchstaben ersetzt. Folgende Klassen bzw. Methoden kön
 - Character.toLowerCase
 
 Sowie bereits bekannte Methoden der String Klasse
+
+___
+
+## Aufgabe 4
+
+Schreiben Sie eine Methode, die ein Array von int Werten übergeben bekommt und den MinSort, den Sie aus der Vorlesung kennen, implementiert.
+Die Methode soll daraufhin das sortierte Array zurückliefern.

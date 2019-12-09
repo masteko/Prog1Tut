@@ -5,7 +5,7 @@ public class Arrays {
 	final static int EVEN = 1;
 
 	public static void main(String[] args) {
-		int[] values = {0, 1, 2, 3, 4};	//kurzschreibeweise für Arrays
+		int[] values = {80, 45, -1, 12, 3, 11, -80, 25, 13, 4};	//kurzschreibeweise für Arrays
 		
 		System.out.println(sum(values));	//liefern beide das
 		System.out.println(sum2(values));	//das gleiche Ergebnis
@@ -20,6 +20,11 @@ public class Arrays {
 		String geflippterSatz = flipSentence(satz);
 		
 		System.out.println(satz + "\n" + geflippterSatz);
+		
+		minSort(values);
+		for (int el : values) {
+			System.out.print(el + " ");
+		}
 	}
 	
 	public static int sum(int[] arr) {
@@ -87,5 +92,29 @@ public class Arrays {
 		}
 		
 		return String.valueOf(resultArray);	//gebe wieder einen String zurück
+	}
+	
+	public static int[] minSort(int[] array) {
+		int niedrigste = 0;
+        int index = 0;
+
+        for (int i = 0; i < array.length; i++) {
+            niedrigste = array[i]; //
+            index = i;
+
+            for (int y = i + 1; y < array.length; y++) {
+                if (array[y] < niedrigste) {
+                    niedrigste = array[y];
+                    index = y;
+                }
+            }
+
+            if (index != i) {
+                array[index] = array[i];
+                array[i] = niedrigste;
+            }
+        }
+        
+        return array;
 	}
 }
