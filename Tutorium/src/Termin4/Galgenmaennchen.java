@@ -3,6 +3,9 @@ package Termin4;
 import java.util.Scanner;
 
 public class Galgenmaennchen {
+	//Bitte beachtet das dieser Code noch diverse Fehler und Dopplungen enthält. 
+	//Er wurde zu verständniszwecken so einfach wie möglich gehalten
+
 	public static void main(String[] args) {
 		String[] woerter = {"Tutorium", "Programmieren", "Computer"};
 		Scanner scanner = new Scanner(System.in);
@@ -29,29 +32,29 @@ public class Galgenmaennchen {
 	}
 	
 	public static boolean wurdeWortErraten(String gesuchtesWort, char[] errateneBuchstaben) {
-		char[] buchstaben = gesuchtesWort.toUpperCase().toCharArray();
+		char[] buchstaben = gesuchtesWort.toUpperCase().toCharArray(); //to UpperCase damit Groß/Kleinschreibung nicht beachtet werden muss
 		
-		int sum = 0;
+		int count = 0;
 		for (int i = 0; i < buchstaben.length; i++) {
 			for (int j = 0; j < errateneBuchstaben.length; j++) {
-				if(errateneBuchstaben[j] == buchstaben[i]) {
-					sum++;
+				if(errateneBuchstaben[j] == buchstaben[i]) { //gehe das Wort durch und schaue ob die einzelnen Buchstaben schon gefunden wurden
+					count++;	//wenn ja erhöre den counter um 1
 					break;
 				}
 			}
 		}
 		
-		return buchstaben.length == sum;
+		return buchstaben.length == count; //ist der Zähler gleich der Länge des Wortes, wurde das Wort erraten
 	}
 	
 	public static void eingabeTest(String gesuchtesWort, char[] errateneBuchstaben, char eingabe) {
-		char[] buchstaben = gesuchtesWort.toUpperCase().toCharArray();
+		char[] buchstaben = gesuchtesWort.toUpperCase().toCharArray(); //to UpperCase damit Groß/Kleinschreibung nicht beachtet werden muss
 		
 		for (int i = 0; i < buchstaben.length; i++) {
-			if (buchstaben[i] == Character.toUpperCase(eingabe)) {
+			if (buchstaben[i] == Character.toUpperCase(eingabe)) { //to UpperCase damit Groß/Kleinschreibung nicht beachtet werden muss
 				for (int j = 0; j < errateneBuchstaben.length; j++) {
-					if (errateneBuchstaben[j] == 0) {
-						errateneBuchstaben[j] = buchstaben[i];
+					if (errateneBuchstaben[j] == 0) { //erster freier Eintrag, da Arrays mit 0 initialisiert werden
+						errateneBuchstaben[j] = buchstaben[i]; //schreibe gefundenen Buchstaben in den Array
 						return;
 					}
 				}
@@ -60,19 +63,19 @@ public class Galgenmaennchen {
 	}
 	
 	public static void ausgabe(String gesuchtesWort, char[] errateneBuchstaben, int count) {
-		char[] buchstaben = gesuchtesWort.toUpperCase().toCharArray();
+		char[] buchstaben = gesuchtesWort.toUpperCase().toCharArray(); //to UpperCase damit groß und Kleinschreibung nicht beachtet werden muss
 
 		System.out.print(count + ". Versuch ");
 		
 		for (int i = 0; i < buchstaben.length; i++) {
 			char buchstabe = '_';
-			for (int j = 0; j < errateneBuchstaben.length; j++) {
-				if(buchstaben[i] == errateneBuchstaben[j]) {
-					buchstabe = buchstaben[i];
-					break;
+			for (int j = 0; j < errateneBuchstaben.length; j++) {	//wurde der Buchstabe schon erraten)
+				if(buchstaben[i] == errateneBuchstaben[j]) { 
+					buchstabe = buchstaben[i];	//falls ja ersetze '_' durch den Buchstaben
+					break;	//danach muss ich nicht weiter in den bereits erratenen Buchstaben suchen
 				}
 			}
-			System.out.print(buchstabe + " ");
+			System.out.print(buchstabe + " "); //gebe '_' oder erratenen Buchstaben aus
 		}
 		System.out.println();
 	}
