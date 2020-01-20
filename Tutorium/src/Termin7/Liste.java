@@ -6,7 +6,7 @@ public class Liste {
 	public void einfuegen(Personenknoten p) {
 		if (start == null) { //Die Liste ist leer
 			start = p;
-		} else  {
+		} else  { // Die Liste ist nicht leer
 			if (start.getAlter() <= p.getAlter()) { //Knoten wird irgendwo in der Liste eingefügt
 				einfuegen(start, p);				
 			} else { //Einzufügender Knoten ist neuer Startknoten
@@ -53,18 +53,16 @@ public class Liste {
 		}
 	}
 	
-	public static void main(String[] args) {
-		Liste liste = new Liste();
-		liste.einfuegen(new Personenknoten(20, "Person1"));
-		liste.einfuegen(new Personenknoten(30, "Person2"));
-		liste.einfuegen(new Personenknoten(25, "Person3"));
-		liste.einfuegen(new Personenknoten(18, "Person4"));
+	@Override
+	public String toString() {
+		String result = "Die Liste hat folgende Einträge: \n";
+		Personenknoten pk = start;
 		
-		System.out.println(liste.sucheViaNachname("Person1"));
-		System.out.println(liste.sucheViaNachname("Person2"));
-		System.out.println(liste.sucheViaNachname("Person3"));
-		System.out.println(liste.sucheViaNachname("person3"));
-		System.out.println(liste.sucheViaNachname("Person4"));
-		System.out.println(liste.sucheViaNachname("Person5"));
+		while (pk != null) { //loope solange bis wir am ende der Liste sind
+			result += pk.toString() + "\n";
+			pk = pk.getNachfolger();
+		}
+		
+		return result;
 	}
 }
