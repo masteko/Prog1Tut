@@ -17,7 +17,7 @@ public class Liste {
 		}
 	}
 	
-	public void einfuegen(Personenknoten p1, Personenknoten p2) {
+	private void einfuegen(Personenknoten p1, Personenknoten p2) {
 		if (p1.getAlter() <= p2.getAlter()) { //Einzufügender Knoten ist älter als der aktuelle Knoten
 			if (p1.getNachfolger() == null) { //Einzufügender Knoten ist neuer letzter Knoten
 				p1.setNachfolger(p2);
@@ -41,7 +41,7 @@ public class Liste {
 		}
 	}
 	
-	public Personenknoten sucheViaNachname(Personenknoten p, String nachname) {
+	private Personenknoten sucheViaNachname(Personenknoten p, String nachname) {
 		if (p.getNachname().equals(nachname)) { //Person mit dem Namen gefunden!
 			return p;
 		} else {
