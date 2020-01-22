@@ -6,7 +6,7 @@ public class Schachbrett {
 	public void setzeTurm(int x, int y) {
 		for (int row = 0; row < brett.length; row++) {
 			for (int col = 0; col < brett[row].length; col++) {
-				if (row == y || col == x) {
+				if (row == x || col == y) {
 					brett[row][col] = true;
 				}
 			}
@@ -26,7 +26,7 @@ public class Schachbrett {
 	public static void main(String[] args) {
 		Schachbrett sb = new Schachbrett();
 		sb.gibBedrohteFelderAus();
-		sb.setzeTurm(3, 6);
+		sb.setzeTurm(3, 5);
 		sb.gibBedrohteFelderAus();
 	}
 	
